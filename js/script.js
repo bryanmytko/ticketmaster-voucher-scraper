@@ -10,11 +10,23 @@ var display_show = function(show){
   var table = $('table');
   var tr = $('<tr>');
 
-  var eventDate = '<td>' + show.LocalEventDateDisplay + '</td>';
-  var eventNameRow = '<td><p class="text-primary"><strong>' + show.EventName + '</strong></p></td>';
-  var eventLocation = '<td><strong>' + show.VenueName + '</strong><br>' + show.VenueCityState + '</td>';
-  var purchaseButton = '<td><a class="btn btn-primary" href="http://ticketmaster.com/' + show.VenueAttractionSeoLink + '">Buy Now</a></td>';
+  var eventDate = $('<td>', { html: show.LocalEventDateDisplay });
 
-  tr.append(eventDate, eventNameRow, eventLocation, purchaseButton);
+  var eventName = $('<p>', { html: '<strong>' + show.EventName + '</strong>' });
+  var eventNameRow = $('<td>', { class: 'text-primary', html: eventName });
+
+  var eventLocation = $('<p>', {
+    html: '<strong>' + show.VenueName + '</strong><br>' + show.VenueCityState
+  });
+  var eventLocationRow = $('<td>', { html: eventLocation });
+
+  var purchaseButton = $('<a>', {
+    class: 'btn btn-primary',
+    href: 'http://ticketmaster.com/' + show.VenueAttractionSeoLink,
+    text: 'Buy Now'
+  });
+  var purchaseButtonRow = $('<td>', { html: purchaseButton });
+
+  tr.append(eventDate, eventNameRow, eventLocationRow, purchaseButtonRow);
   table.append(tr);
 };
