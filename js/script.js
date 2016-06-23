@@ -12,7 +12,9 @@ var display_show = function(show){
 
   var eventDate = $('<td>', { html: show.LocalEventDateDisplay });
 
-  var eventName = $('<p>', { html: '<strong>' + show.EventName + '</strong>' });
+  var eventName = $('<p>', {
+    html: '<strong>' + show.EventName + '</strong>'
+  });
   var eventNameRow = $('<td>', { class: 'text-primary', html: eventName });
 
   var eventLocation = $('<p>', {
