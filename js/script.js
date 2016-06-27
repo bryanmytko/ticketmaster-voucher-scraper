@@ -1,12 +1,11 @@
 $.get('js/voucher_data.js', function(shows){
   var shows = JSON.parse(shows);
-
   shows.forEach(function(show){
-    display_show(show);
+    generate_show_row(show);
   });
 });
 
-var display_show = function(show){
+var generate_show_row = function(show){
   var table = $('table');
   var tr = $('<tr>');
 
